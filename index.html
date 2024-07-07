@@ -48,15 +48,17 @@
             var message = document.getElementById("message").value;
             var name = document.getElementById("name").value;
 
-            Email.send({
+            try {(Email.send({
                 SecureToken: "e607c678-69a9-4c81-9955-9d2bfd788d7a",
                 To: 'satyarthsrivastava7@gmail.com',
                 From: 'satyarthsrivastava7@gmail.com',
                 Subject: purpose + " from " + name,
                 Body: message
             }).then(
-                message => alert(message)
-            );
+                alert("Email sent successfully!")
+            ));} catch (error) {
+                console.log(error);
+            }
         }
     </script>
 </body>
